@@ -6,7 +6,7 @@ F = scatteredInterpolant(X(:),Y(:),Z(:),'linear','linear');
 %% Auxiliary variables, solver settings and initialization of Node and P
 Dir1 = [1 0 ; 0 1 ; -1 0 ; 0 -1]; Dir2 = [-Dir1(:,2) Dir1(:,1)];
 Opt = optimoptions(@fmincon,'Algorithm','active-set','Display','notify'...
-    ,'MaxFunctionEvaluations',5e3);
+    ,'MaxFunctionEvaluations',5e3,'StepTolerance',1e-6);
 Node = NaN([Grid 3]); P = NaN(prod(Grid-1),4,4);
 %% Step 1: Place org. node (1) and node (2) defined by ini. drape angle
 % Define linear idx., place node 1 and locate node 2 by circle intersection
