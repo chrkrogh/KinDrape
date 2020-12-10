@@ -1,4 +1,4 @@
-function [Node,P] = KinDrape_eff(d,Grid,Org,Ang,OrgNode) 
+function [Node,P] = KinDrape_eff(d,Grid,Org,Ang,OrgNode,PreShear,Plt) 
 %% Mold definition: Hemisphere
 [Theta,Phi] = meshgrid(linspace(0,2*pi,100),linspace(pi/20,pi/2-1e-10,50));
 [X,Y,Z] = sph2cart(Theta,Phi,1); 
@@ -17,14 +17,15 @@ Node(Idx(2,:)) = MoldCircIntersecFun(Node(Idx),F,d,Ang);
 GenStart = OrgNode + [0 0 ; 1 1 ; 0 1 ; 0 0];
 nGenCell = [Grid-OrgNode-[0 1]  OrgNode-1]; 
 for i = 1:4
-    a_0 = repmat(3/4*d*[cosd(Ang+(i-1)*90) sind(Ang+(i-1)*90)],1,2);
+    ArmAng = Ang+(i-1)*90 + PreShear*(1-(-1)^i)/2;
+    a_0 = repmat(3/4*d*[cosd(ArmAng) sind(ArmAng)],1,2);
     for j = GenStart(i,:)' + (0:nGenCell(i)-1).*Dir1(i,:)'
         % Get cell idx and def. solver input. Call fmincon, assign solution
         [Idx, CellNo] = CellIdx(Grid,j(1),j(2),Dir1,Dir2,i);
         Bnd = a_0 + 1/2*norm(a_0(1:2))*[-1 -1 -1 -1; 1 1 1 1];
-        a_sol = fmincon(@(a)ShearFun(a,Node(Idx),F),a_0,[],[],[],[],...
-            Bnd(1,:),Bnd(2,:),@(a)DistFun(a,Node(Idx),F,d),Opt);
-        [~,Node(Idx),Shear] = ShearFun(a_sol,Node(Idx),F);
+        a_sol = fmincon(@(a)ShearFun(a,Node(Idx),F,PreShear,i),a_0,[],...
+            [],[],[],Bnd(1,:),Bnd(2,:),@(a)DistFun(a,Node(Idx),F,d),Opt);
+        [~,Node(Idx),Shear] = ShearFun(a_sol,Node(Idx),F,PreShear,i);
         % Put current cell coord. and shear in P array and update a_0
         P(CellNo,1:4,1:4) = [Node(Idx) Shear']; 
         a_0 = a_sol;
@@ -40,17 +41,19 @@ for i = 1:4
             [Idx, CellNo] = CellIdx(Grid,j,k,Dir1,Dir2,i);
             Node(Idx(3,:)) = MoldCircIntersecFun(Node(Idx),F,d,[]);
             % Put current cell coord. and shear in P array for patch plot
-            [~,~,Shear] = ShearFun([],Node(Idx),F);
+            [~,~,Shear] = ShearFun([],Node(Idx),F,PreShear,i);
             P(CellNo,1:4,1:4) = [Node(Idx) Shear'];
         end
     end
 end
 %% Plot
-figure; scatter3(Org(1),Org(2),F(Org(1),Org(2)),'kx','LineWidth',5); 
-hold on; axis('equal','tight'); xlabel('x'); ylabel('y'); zlabel('z');
-surf(X,Y,Z,0,'EdgeColor','none','FaceColor',[0.6,0.7,0.8],'FaceAlpha',0.5);
-patch(P(:,:,1)',P(:,:,2)',P(:,:,3)',P(:,:,4)');
-cb = colorbar; cb.Label.String = 'Shear Angle [deg]'; colormap('jet');
+if Plt
+    figure; scatter3(Org(1),Org(2),F(Org(1),Org(2)),'kx','LineWidth',5);
+    hold on; axis('equal','tight'); xlabel('x'); ylabel('y'); zlabel('z');
+    surf(X,Y,Z,0,'EdgeColor','none','FaceColor',[.6,.7,.8],'FaceAlpha',.5);
+    patch(P(:,:,1)',P(:,:,2)',P(:,:,3)',P(:,:,4)');
+    cb = colorbar; cb.Label.String = 'Shear Angle [deg]'; colormap('jet');
+end
 end
 %% Aux. functions
 function [Idx, CellNo] = CellIdx(Grid,Row,Col,Dir1,Dir2,No)
@@ -105,7 +108,7 @@ Vert(4,:) = [Vert(1,1:2)+a(3:4) F(Vert(1,1)+a(3),Vert(1,2)+a(4))];
 Out1 = [];
 Out2 = vecnorm(Vert([3,4,4],:)-Vert([2,3,1],:),2,2)' - d;
 end
-function [Obj, Vert, Shear] = ShearFun(a,Vert,F)
+function [Obj, Vert, Shear] = ShearFun(a,Vert,F,PreShear,i)
 % Calculate unknown vertices and shear ang. Return shear ang. sum (obj. in 
 % step 2), vertex coordinates and vector of shear ang. (for P array)
 if length(a) == 4 % Step 2
@@ -115,6 +118,6 @@ end
 % Calculate shear angles using edge vectors u and v. Calculate sum
 u = Vert([2 3 4 1],:)' - Vert'; 
 v = Vert([4 1 2 3],:)' - Vert';
-Shear = abs(atan2d(vecnorm(cross(u,v),2,1),dot(u,v))-90);
-Obj = sum(Shear); 
+Shear = (atan2d(vecnorm(cross(u,v),2,1),dot(u,v))-90).*[1 -1 1 -1]*(-1)^i;
+Obj = sum(abs(Shear - PreShear)); 
 end
