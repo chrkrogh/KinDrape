@@ -36,16 +36,15 @@ end
 ConStart = OrgNode + [1 1 ; 0 1 ; 0 0 ; 1 0];
 nConCell = nGenCell([1 2 ; 3 2 ; 3 4 ; 1 4]) - [1 0 ; 0 0 ; 0 0 ; 1 0];
 for i = 1:4
-    a_0 = 3/4*d*[cosd(Ang+(i-1)*90) sind(Ang+(i-1)*90)];
     for j = ConStart(i,1) + (0:nConCell(i,1)-1)*(Dir1(i,1)+Dir2(i,1))
         for k = ConStart(i,2) + (0:nConCell(i,2)-1)*(Dir1(i,2)+Dir2(i,2)) 
             % Get cell idx and def. solver input. Call fsolve, assign sol.
             [Idx, CellNo] = CellIdx(Grid,j,k,Dir1,Dir2,i);
+            a_0 = Node(Idx(4,1:2)) - Node(Idx(1,1:2)); 
             a_sol = fsolve(@(a)DistFun(a,Node(Idx),F,d,[]),a_0,Opt1);
             [~,Node(Idx),Shear] = ShearFun(a_sol,Node(Idx),F);
-            % Put current cell coord. and shear in P array and update a_0
+            % Put current cell coord. and shear in P array
             P(CellNo,1:4,1:4) = [Node(Idx) Shear']; 
-            a_0 = a_sol;
         end
     end
 end
