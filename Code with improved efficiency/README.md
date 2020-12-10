@@ -1,5 +1,5 @@
 This folder contains the following files: 
-1) KinDrape_eff.m: an updated and more efficient version of the original draping code, KinDrape.
+1) KinDrape_eff.m (an updated and more efficient version of the original draping code, KinDrape)
 
 The updates concern the method for locating constrained nodes in Step 3. As discussed in the 
 journal paper, it can be done more efficiently by setting up two spheres, centered in vertex 2
