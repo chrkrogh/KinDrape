@@ -9,5 +9,5 @@ the intersection between the intersection circle and the mold surface. This is a
 simple bi-section algorithm. The bi-section method is also being used to locate the second node 
 in Step 1. The new additions are implemented in a new auxiliary function, MoldCircIntersecFun.
 
-Also, the PreShear angle has been included in the initial guess for the first cell in each arm
+Also, the PreShear angle has been included in the initial guess for the first cell in arm 1 and 3
 in Step 2 (l. 20), which adds robustness for high values of pre-shear angles.
