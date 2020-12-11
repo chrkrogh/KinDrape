@@ -2,7 +2,7 @@
 This project is about a simple implementation of a kinematic draping algorithm developed
 for fiber-reinforced composites and described in the journal paper:
 
-< fille in journal paper information when available>
+<fill in journal paper information when available>
 
 Given a mold definition (either in the form of a point cloud or an analytical expression),
 dimensions of the fabric/ply to be draped and some draping parameters, the code will predict
