@@ -23,3 +23,5 @@ Please feel free to use and adapt the codes but remember to give proper attribut
 i.e. cite the journal paper and the code's DOI number:
 
 https://doi.org/10.5281/zenodo.4316860
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4316860.svg)](https://doi.org/10.5281/zenodo.4316860)
