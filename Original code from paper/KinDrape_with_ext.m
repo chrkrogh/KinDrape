@@ -11,6 +11,8 @@ function [Node,P] = KinDrape_with_ext(d,Grid,Org,Ang,OrgNode,PreShear,Plt)
 F =@(x,y) 1.004*x + 1.089*y - 3.667*x.^2 ...
 -4.4*x.*y - 3.75*y.^2 + 3.086*x.^3 + ...
 8.889*x.^2.*y + 4.321*y.^3; Z = F(X,Y);
+%% New mold definition: Scaled MATLAB Peaks function
+%[X,Y] = meshgrid(-3:0.01:3); F =@(x,y) 1/8 * peaks(x,y); Z = F(X,Y);
 %% Auxiliary variables, solver settings and initialization of Node and P
 Dir1 = [1 0 ; 0 1 ; -1 0 ; 0 -1]; Dir2 = [-Dir1(:,2) Dir1(:,1)];
 Opt1 = optimoptions(@fsolve,'Display','off'); 
