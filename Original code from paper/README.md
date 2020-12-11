@@ -24,6 +24,7 @@ number, the second dimension is the vertices 1-4 of each cell and the third dime
 and a shear angle)
 
 Draping on the hemisphere mold in the original code can e.g. be executed as:
+
 `KinDrape(0.08,[24 24],-[0.04 0.04],0,[12 12]);`
 
 or
