@@ -11,3 +11,22 @@ in Step 1. The new additions are implemented in a new auxiliary function, MoldCi
 
 Also, the PreShear angle has been included in the initial guess for the first cell in arm 1 and 3
 in Step 2 (l. 20), which adds robustness for high values of pre-shear angles.
+
+## Brief overview of input and output
+Input parameters to KinDrape:
+- d: discretization distance (scalar)
+- Grid: Dimensions of fabric grid (two-component vector with number of rows and columns)
+- Org: x,y origin point on mold (two-component vector with x,y)
+- Ang: Initial draping direction rel. to y-axis in degrees (scalar)
+- OrgNode: Origin node of grid (two-component vector with row and column)
+
+The following two inputs are implemented with the extensions of the code
+- PreShear: Pre-shear angle in degrees (scalar)
+- Plt: Variable to enable/disable plotting (true/false)
+
+Output parameters from KinDrape:
+- Node: 3D array with computed grid nodes (first two dimensions correspond to the location in 
+the grid as row/column and the third dimension/page contains x,y,z-coordinates)
+- P: 3D array with data for plotting the draped cells as colored patches (the first dimension is the cell
+number, the second dimension is the vertices 1-4 of each cell and the third dimension has three coordinates
+and a shear angle)
