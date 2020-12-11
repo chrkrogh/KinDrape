@@ -54,15 +54,15 @@ def KinDrape(d, Grid, Org, Ang, OrgNode):
                 a_sol = fsolve(DistFun, a_0, args=(Node[tuple(Idx)], F, d),
                                 factor=1,diag=(d,d))
                 Node[tuple(Idx)] = CellVertCoor(a_sol, Node[tuple(Idx)], F)
-                # Put curr. cell coord. and shear in P and Shear and upd. a_0
+                # Put current cell coord. and shear in P and Shear
                 P[CellNo] = list(map(tuple,Node[tuple(Idx)]))
                 Shear[CellNo,:] = ShearFun(Node[tuple(Idx)])
     ## Plotting
     # Create 3D figure and plot surface
     fig = plt.figure(); ax = Axes3D(fig)
-    ax.plot_surface(X,Y,Z,rstride=2,cstride=2,color=(0.64,0.71,0.8),shade=True)
+    ax.plot_surface(X,Y,Z,rstride=2,cstride=2,color=(0.6,0.7,0.8),alpha=0.4)
     # Define colormap and map the mean shear of each cell to a list of colors
-    cMin = np.nanmin(Shear); cMax = np.nanmax(Shear);  
+    cMin = np.min(Shear); cMax = np.max(Shear);  
     CMapName = 'jet'; CMap = mpl.cm.get_cmap(CMapName);
     C = list(map(list,CMap(mpl.colors.Normalize(cMin,cMax)(np.mean(Shear,1)))))
     # Plot cells as colored polygons, and create axis labels and colorbar
