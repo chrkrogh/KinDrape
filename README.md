@@ -20,4 +20,6 @@ are around 100 lines in length:
 - Python implementation (a Python version of the original code)
 
 Please feel free to use and adapt the codes but remember to give proper attribution,
-i.e. cite the journal paper and the code's DOI number: <fill in DOI number when available>.
+i.e. cite the journal paper and the code's DOI number:
+
+https://doi.org/10.5281/zenodo.4316860
