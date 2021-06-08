@@ -2,7 +2,11 @@
 This project is about a simple implementation of a kinematic draping algorithm developed
 for fiber-reinforced composites and described in the journal paper:
 
-(Paper submitted. Information will be updated)
+Krogh, C., Bak, B.L.V., Lindgaard, E. et al. A simple MATLAB draping code for fiber-reinforced 
+composites with application to optimization of manufacturing process parameters. 
+Struct Multidisc Optim (2021). https://doi.org/10.1007/s00158-021-02925-z
+
+The paper can be accessed in a free read-only version at: https://rdcu.be/clPiQ
 
 Given a mold definition (either in the form of a point cloud or an analytical expression),
 dimensions of the fabric/ply to be draped and some draping parameters, the code will predict
