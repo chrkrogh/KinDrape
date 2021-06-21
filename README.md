@@ -4,7 +4,7 @@ for fiber-reinforced composites and described in the journal paper:
 
 Krogh, C., Bak, B.L.V., Lindgaard, E. et al. A simple MATLAB draping code for fiber-reinforced 
 composites with application to optimization of manufacturing process parameters. 
-Struct Multidisc Optim (2021). https://doi.org/10.1007/s00158-021-02925-z
+Struct Multidisc Optim 64, 457–471 (2021). https://doi.org/10.1007/s00158-021-02925-z
 
 The paper can be accessed in a free read-only version at: https://rdcu.be/clPiQ
 
