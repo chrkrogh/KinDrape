@@ -1,6 +1,4 @@
 # This file contains the dependencies for the Python code
 numpy
-scipy.interpolate
-mpl_toolkits.mplot3d
+scipy
 matplotlib
-matplotlib.pyplot
