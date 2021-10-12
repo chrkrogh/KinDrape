@@ -1,5 +1,6 @@
-# This file contains the dependencies for the code
+# This file contains the dependencies for the Python code
 numpy
-scipy
-mpl_toolkits
+scipy.interpolate
+mpl_toolkits.mplot3d
 matplotlib
+matplotlib.pyplot
