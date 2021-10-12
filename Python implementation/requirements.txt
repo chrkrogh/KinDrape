@@ -1,0 +1,5 @@
+# This file contains the dependencies for the code
+numpy
+scipy
+mpl_toolkits
+matplotlib
