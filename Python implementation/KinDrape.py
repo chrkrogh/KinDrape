@@ -73,7 +73,7 @@ def KinDrape(d, Grid, Org, Ang, OrgNode):
     fig.colorbar(pc,shrink=0.75,boundaries=np.linspace(cMin, cMax, 50),
                   label='Shear angle [deg]')
     plt.show() 
-    return Node, Shear
+    return Node, Shear, ax, fig
 ## Auxiliary functions
 def CosSin(Alpha):
     # Return a unit vector in direction of Alpha
