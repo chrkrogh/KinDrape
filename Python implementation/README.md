@@ -11,7 +11,7 @@ can e.g. be executed from the Spyder environment available with the Anaconda dis
 
 The code can also be accessed online through MyBinder, i.e. without the need to download and
 install the Python environment. Please see the MyBinder badge at the bottom of the 
-[primary readme file](../readme.md) in the root directory. 
+[primary readme file](../README.md) in the root directory. 
 
 Please note that the focus in the implementation was to create a code similar in structure 
 to the original MATLAB code and therefore not necessarily to create an elegant Python code.
