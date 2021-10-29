@@ -59,7 +59,7 @@ def KinDrape(d, Grid, Org, Ang, OrgNode):
                 Shear[CellNo,:] = ShearFun(Node[tuple(Idx)])
     ## Plotting
     # Create 3D figure and plot surface
-    fig = plt.figure(); ax = Axes3D(fig)
+    fig = plt.figure(); ax = Axes3D(fig,auto_add_to_figure=0); fig.add_axes(ax)
     ax.plot_surface(X,Y,Z,rstride=2,cstride=2,color=(0.6,0.7,0.8),alpha=0.4)
     # Define colormap and map the mean shear of each cell to a list of colors
     cMin = np.min(Shear); cMax = np.max(Shear);  
