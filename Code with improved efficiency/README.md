@@ -4,6 +4,7 @@ This folder contains the following files:
 2) KinDrape_eff_NR.m (an updated and even more efficient version with a Newton-Raphson solver)
 
 **Regarding KinDrape_eff.m and KinDrape_eff_NR.m:**
+
 The updates concern the method for locating constrained nodes in Step 3. As discussed in the 
 journal paper, it can be done more efficiently by setting up two spheres, centered in vertex 2
 and vertex 4, respectively and with a radius equal to the discretization distance, d. The two 
@@ -16,6 +17,7 @@ Also, the PreShear angle has been included in the initial guess for the first ce
 in Step 2 (1st line in the i-loop in Step 2), which adds robustness for high values of pre-shear angles.
 
 **Regarding KinDrape_eff_NR.m:**
+
 In this version the location of nodes for the generator cells in Step 2 is transformed into an optimization
 problem in one variable which can be solved with a Newton-Raphson solver. The design variable (CellAng) is 
 the angle of cell edge 1-4. In the objective function (Step2Obj) vertex #4 is first located using this angle
