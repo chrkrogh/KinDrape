@@ -9,8 +9,8 @@ to interact with the kinematic draping code. The code was developed using Python
 can e.g. be executed from the Spyder environment available with the Anaconda distribution 
 (https://www.anaconda.com/). Here, interactive plots much like MATLAB are supported.
 
-The code can also be accessed online through MyBinder, i.e. without the need to download and
-install the Python environment. Please see the MyBinder badge at the bottom of the 
+The code can also be accessed online through *binder*, i.e. without the need to download and
+install the Python environment. Please see the binder badge at the bottom of the 
 [primary readme file](../README.md) in the root directory. 
 
 Please note that the focus in the implementation was to create a code similar in structure 
