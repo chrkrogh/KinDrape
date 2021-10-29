@@ -21,8 +21,9 @@ M. Hermansen, Peter H. Broberg, Jørgen A. Kepler, Erik Lund, and Johnny Jakobse
 Various versions of the main code can be found in the different folders but all of the versions
 are around 100 lines in length:
 - Original code from paper (the original MATLAB version presented in the paper)
-- Code with improved effiency (a more efficient version of the original code)
-- Python implementation (a Python version of the original code)
+- Code with improved efficiency (a couple of more efficient versions of the original code)
+- Python implementation (a couple of Python implementations of the MATLAB code)
+- Octave implementation (a version of the code that is compatible with Octave)
 
 Please feel free to use and adapt the codes but remember to give proper attribution,
 i.e. cite the journal paper and the code's DOI number: 10.5281/zenodo.4316860
