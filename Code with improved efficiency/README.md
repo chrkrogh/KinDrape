@@ -18,10 +18,12 @@ in Step 2 (1st line in the i-loop in Step 2), which adds robustness for high val
 
 **Regarding KinDrape_eff_NR.m:**
 
-In this version the location of nodes for the generator cells in Step 2 is transformed into an optimization
-problem in one variable which can be solved with a Newton-Raphson solver. The design variable (CellAng) is 
-the angle of cell edge 1-4. In the objective function (Step2Obj) vertex #4 is first located using this angle
-and afterwards vertex #3 can be located analogous to the procedure in Step 3.
+In this version, the determination of the two unknown nodes for the generator cells in Step 2 (Vertex #2 and #4) 
+is transformed into an optimization problem in one variable which can be solved with a Newton-Raphson solver. 
+The design variable (CellAng) is the angle of cell edge 1-4. In the objective function (Step2Obj) vertex #4 
+is first located using this angle (analogous to the 2nd node in Step 1) and afterwards vertex #3 is located analogous 
+to the procedure in Step 3. The objective function returns the sum of shear angles with the preshear subtracted 
+based on which the Newton-Raphson solver can update the design variable.
 
 ## Brief overview of input and output
 Input parameters to KinDrape:
