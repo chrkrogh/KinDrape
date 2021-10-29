@@ -31,4 +31,4 @@ i.e. cite the journal paper and the code's DOI number: 10.5281/zenodo.4316860
 
 Try the Python code online in Binder:
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/chrkrogh/KinDrape/3f7f1593b49099c1503b908708e7bd37aba7594b?urlpath=lab%2Ftree%2FPython%20implementation%2FCallKinDrapeNotebook.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/chrkrogh/KinDrape/e42ac0b640c541b8da7d04ff5eb7dcac49b84299?urlpath=lab%2Ftree%2FPython%20implementation%2FCallKinDrapeNotebook.ipynb)
