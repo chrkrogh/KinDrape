@@ -28,8 +28,8 @@ Input parameters to KinDrape.py:
 
 Output parameters from KinDrape:
 - Node: 3D array with computed grid nodes (first two dimensions correspond to the location in 
-the grid as row/column and the third dimension/page contains x,y,z-coordinates).
-- Shear: 2D array with computed shear angles of the cells (first dimension is the cell number
-and the second dimension is the four shear angles of the cell).
-- ax: axes handle.
-- fig: figure handle.
+the grid as row/column and the third dimension/page contains x,y,z-coordinates)
+- CellShear: 2D array with computed shear angles of the cells (first dimension is the cell number
+and the second dimension is the four shear angles of the cell)
+- ax: axes handle
+- fig: figure handle
