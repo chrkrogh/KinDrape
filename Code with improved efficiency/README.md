@@ -6,7 +6,7 @@ This folder contains the following files:
 **Regarding KinDrape_eff.m and KinDrape_eff_NR.m:**
 
 The updates concern the method for locating constrained nodes in Step 3. As discussed in the 
-journal paper, it can be done more efficiently by setting up two spheres, centered in vertex 2
+journal paper, it can be done more efficiently (than with fsolve) by setting up two spheres, centered in vertex 2
 and vertex 4, respectively and with a radius equal to the discretization distance, d. The two 
 spheres will intersect in a circle and the problem of locating vertex 3 thus reduces to finding 
 the intersection between the intersection circle and the mold surface. This is achieved with a
@@ -20,6 +20,7 @@ in Step 2 (1st line in the i-loop in Step 2), which adds robustness for high val
 
 In this version, the determination of the two unknown nodes for the generator cells in Step 2 (Vertex #2 and #4) 
 is transformed into an optimization problem in one variable which can be solved with a Newton-Raphson solver. 
+The new formulation for Step 2 thus replaces the constrained optimization problem previously solved using fmincon.
 The design variable (CellAng) is the angle of cell edge 1-4. In the objective function (Step2Obj) vertex #4 
 is first located using this angle (analogous to the 2nd node in Step 1) and afterwards vertex #3 is located analogous 
 to the procedure in Step 3. The objective function returns the sum of shear angles with the preshear subtracted 
