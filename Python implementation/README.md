@@ -3,6 +3,7 @@ This folder contains the following files:
 1) KinDrape.py (Python implementation of the original MATLAB KinDrape)
 2) KinDrape_eff_NR.py (Python implementation of the MATLAB KinDrape_eff_NR)
 3) CallKinDrape.py (script to define input and call KinDrape.py)
+4) CallKinDrapeNotebook.ipynb (Jupyter Notebook that defines input and calls KinDrape.py)
 
 The motivation for the Python implementation was to enable users without a MATLAB license
 to interact with the kinematic draping code. The code was developed using Python 3.8 and 
@@ -11,7 +12,8 @@ can e.g. be executed from the Spyder environment available with the Anaconda dis
 
 The code can also be accessed online through *binder*, i.e. without the need to download and
 install the Python environment. Please see the binder badge at the bottom of the 
-[primary readme file](../README.md) in the root directory. 
+[primary readme file](../README.md) in the root directory. Here, the draping code can be 
+conveniently called from the Jupyter Notebook *CallKinDrapeNotebook*.
 
 Please note that the focus in the implementation was to create a code similar in structure 
 to the original MATLAB code and therefore not necessarily to create an elegant Python code.
@@ -26,6 +28,8 @@ Input parameters to KinDrape.py:
 
 Output parameters from KinDrape:
 - Node: 3D array with computed grid nodes (first two dimensions correspond to the location in 
-the grid as row/column and the third dimension/page contains x,y,z-coordinates)
+the grid as row/column and the third dimension/page contains x,y,z-coordinates).
 - Shear: 2D array with computed shear angles of the cells (first dimension is the cell number
-and the second dimension is the four shear angles of the cell)
+and the second dimension is the four shear angles of the cell).
+- ax: axes handle.
+- fig: figure handle.
