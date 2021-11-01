@@ -1,4 +1,4 @@
-# This file contains the dependencies for the Python code
+# This file contains the dependencies for the Python code. It is necessary for running the code in binder.
 numpy
 scipy
 matplotlib
