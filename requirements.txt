@@ -1,4 +1,5 @@
 # This file contains the dependencies for the Python code. It is necessary for running the code in binder.
-numpy
-scipy
+numpy==1.21.2
+scipy==1.7.1
 matplotlib==3.4.3
+matplotlib-inline==0.1.2
